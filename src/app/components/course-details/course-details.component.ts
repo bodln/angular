@@ -9,9 +9,15 @@ import { Course } from 'src/app/models/Course';
 export class CourseDetailsComponent {
   @Input() course?:Course;
   @Output() deleteEvent = new EventEmitter<number>()
+  @Output() sendCourse = new EventEmitter<Course>()
 
   deleteCourse() {
     console.log("Event emmitted");
     this.deleteEvent.emit(this.course?.id)
+  }
+
+  populateClick(){
+    this.sendCourse.emit(this.course)
+    console.log("popopo", this.course)
   }
 }

@@ -11,6 +11,7 @@ import { CourseData } from './intefaces/ICourseDetails';
 export class AppComponent {
   title = 'schoole';
   globalId:number = 0;
+  courseForShow?:Course
   courses:Course[] = [new Course(++this.globalId, "Test1", "Dejan Aksovic"), new Course(++this.globalId, "Test2", "Omer Sadikovic")]
 
   handleAdd(event: CourseData) {
@@ -19,5 +20,9 @@ export class AppComponent {
 
   handleDelete(id: Number) {
     this.courses = this.courses.filter( e => e.id !== id)
+  }
+
+  gimmeCourse(course:Course){
+    this.courseForShow = course
   }
 }

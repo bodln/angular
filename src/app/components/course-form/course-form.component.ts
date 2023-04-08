@@ -1,7 +1,8 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CourseValidator } from './course.validators';
 import { CourseData } from 'src/app/intefaces/ICourseDetails';
+import { Course } from 'src/app/models/Course';
 
 @Component({
   selector: 'app-course-form',
@@ -16,6 +17,7 @@ export class CourseFormComponent {
     author: new FormControl('', [Validators.required, CourseValidator.hasTwoWord])
   })
 
+  @Input() courseForShow?:Course
   @Output() addEvent = new EventEmitter<CourseData>();
 
   get Title() {
@@ -60,5 +62,9 @@ export class CourseFormComponent {
 
   seeObject() {
     console.log(this.Title?.errors)
+  }
+
+  showCourse(course: Course){
+
   }
 }

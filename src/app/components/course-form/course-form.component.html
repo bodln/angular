@@ -1,15 +1,15 @@
 <form [formGroup]="courseForm" class="main-form mt-4">
     <div class="form-group mb-4">
         <label for="title" class="form-label">Naziv: </label>
-        <input type="text" formControlName="title" id="title" class="form-control">
+        <input [ngModel]="courseForShow?.title" type="text" formControlName="title" id="title" class="form-control">
     </div>
     <div class="form-group mb-4">
         <label for="details" class="form-label">Opis kursa:</label>
-        <textarea id="details" formControlName="details" cols="30" rows="5" class="form-control"></textarea>
+        <textarea [ngModel]="courseForShow?.details" id="details" formControlName="details" cols="30" rows="5" class="form-control"></textarea>
     </div>
     <div class="form-group mb-4">
         <label for="author" class="form-label">Autor: </label>
-        <input type="text" id="author" formControlName="author" class="form-control">
+        <input [ngModel]="courseForShow?.author" type="text" id="author" formControlName="author" class="form-control">
     </div>
     <div *ngIf = "(Title?.touched && Title?.invalid) || (Author?.touched && Author?.invalid)">
         <div class="alert alert-warning" *ngIf = "Errors">
